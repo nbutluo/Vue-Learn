@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: '<i>jspang.com</i>',
+                    count: 5
+                };
+            },
+            methods: {
+                btnClick() {
+                    this.message = this.message == 'jspang.com' ? '技术胖' : 'jspang.com';
+                    console.log(document.getElementById('app').innerHTML);
+                }
+            },
+            template: `<h1 v-html="message" v-on:click="btnClick" v-once v-bind:title="message"></h1>
+                    <div>{{ count>2 ?'大':'小' }}</div>
+            `
+        })
+        const vm = app.mount("#app")
+    </script>
+</body>
+
+</html>

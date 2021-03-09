@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    message: 'jspang.com',
+                    price: 20,
+                    count: 2
+                };
+            },
+            watch: {
+                count(current, prev) {
+                    console.log('watch changed')
+                    console.log('变化前的值：', prev)
+                    console.log('现在的值：', current)
+                }
+            },
+            methods: {
+                getTotal() {
+                    return this.price * this.count;
+                },
+                addCount() {
+                    return this.count++;
+                }
+            },
+            computed: {
+                total() {
+                    console.log('....watch changed');
+                    return Date.now();
+                }
+            },
+            template:
+                `
+                <h2>{{ getTotal() }}</h2>
+                <button @click="addCount">点击增加</button>
+                <h2>{{ message }}</h2>
+                <h2>{{ total }}</h2>
+                
+            `
+        })
+
+        const vm = app.mount("#app");
+    </script>
+
+</body>
+
+</html>

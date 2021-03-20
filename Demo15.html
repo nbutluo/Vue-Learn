@@ -7,39 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
-    <style>
-        .red {
-            color: red;
-        }
-
-        .green {
-            color: green;
-        }
-
-        .background {
-            background-color: orange;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
         const app = Vue.createApp({
-
             data() {
                 return {
                     message: 'jspang.com',
-                    classString: 'red'
+                    show: false
                 };
             },
-
             template: `
-            <h2>
-                <h2 class="red">{{ message }}</h2>
-                <h2 :class="classString">JSPang.com</h2>
+            <h2 v-show="show">{{ message }}</h2>
+            <h2 v-if="show">{{ message }}</h2>
             `
-        })
+        });
 
         const vm = app.mount("#app");
     </script>

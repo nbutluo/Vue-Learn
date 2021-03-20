@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    count: 0
+                };
+            },
+            methods: {
+                addCount(num) {
+                    return this.count += num;
+                    // alert(0);
+                },
+                handClick1() {
+                    alert(1);
+                }
+            },
+            template: `
+                <div @click.self="handClick1">
+                    最外层文字
+                    <div>当前数目为：{{ count }}</div>
+                    <button @click.once="addCount(2)">点击增加佳丽</button>
+                </div>
+            `
+        })
+
+        const vm = app.mount("#app")
+    </script>
+</body>
+
+</html>

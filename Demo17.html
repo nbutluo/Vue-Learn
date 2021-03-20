@@ -7,42 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
-    <style>
-        .red {
-            color: red;
-        }
-
-        .green {
-            color: green;
-        }
-
-        .background {
-            background-color: orange;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
         const app = Vue.createApp({
-
             data() {
                 return {
-                    message: 'jspang.com',
-                    classString: 'red'
+                    listArr: ['六棱', '张三', '里斯'],
+                    message: 'jspang.com'
                 };
             },
-
             template: `
-            <h2>
-                <h2 class="red">{{ message }}</h2>
-                <h2 :class="classString">JSPang.com</h2>
-            `
+                <ul>
+                    <li v-for="(item,index) of listArr">{{ index }}--{{ item }}</li>
+                </ul>
+            `,
         })
 
-        const vm = app.mount("#app");
+        const vm = app.mount("#app")
     </script>
+
 </body>
 
 </html>

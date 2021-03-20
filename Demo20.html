@@ -7,41 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/vue@next"></script>
-    <style>
-        .red {
-            color: red;
-        }
-
-        .green {
-            color: green;
-        }
-
-        .background {
-            background-color: orange;
-        }
-    </style>
 </head>
 
 <body>
     <div id="app"></div>
     <script>
         const app = Vue.createApp({
-
             data() {
                 return {
-                    message: 'jspang.com',
-                    classString: 'red'
+                    count: 0
                 };
             },
-
+            methods: {
+                addCount(num) {
+                    return this.count += num;
+                },
+                handClick1() {
+                    alert(1);
+                }
+            },
             template: `
-            <h2>
-                <h2 class="red">{{ message }}</h2>
-                <h2 :class="classString">JSPang.com</h2>
+                <div @click="handClick1">
+                    <div>当前数目为：{{ count }}</div>
+                    <button @click.stop="addCount(2)">点击增加佳丽</button>
+                </div>
             `
         })
 
-        const vm = app.mount("#app");
+        const vm = app.mount("#app")
     </script>
 </body>
 
